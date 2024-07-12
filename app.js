@@ -20,7 +20,7 @@ app.post('/store-file', async (req, res) => {
     }
 
     try {
-        const filePath = path.join(FILE_DIR, file); // Use __dirname to get the correct path
+        const filePath = path.join(FILE_DIR, file); 
 
         await fs.writeFile(filePath, data);
 
@@ -40,10 +40,6 @@ app.post('/calculate', async (req, res) => {
 
     const filePath = path.join('../data', file);
 
-    // if (!fs.existsSync(filePath)) {
-    //     return res.json({ file, error: 'File not found.' });
-    // }
-
     try {
         const response = await axios.post(CONTAINER_2_ENDPOINT, { file, product });
         return res.json(response.data);
@@ -52,7 +48,6 @@ app.post('/calculate', async (req, res) => {
     }
 });
 
-// const PORT = 6000;
 app.listen(PORT, () => {
     console.log(`Container 1 is running on port ${PORT}`);
 });
