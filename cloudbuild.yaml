@@ -40,5 +40,5 @@ steps:
       - "-c"
       - |
         echo "updating pods..."
-        kubectl set image deployment/container1-deployment container1=us-central1-docker.pkg.dev/k8s-project-429019/k8-art-reg/container1:latest
+        kubectl set image container1-deployment container1=us-central1-docker.pkg.dev/k8s-project-429019/k8-art-reg/container1:latest
         echo "Image updated successfully."
