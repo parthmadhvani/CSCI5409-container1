@@ -27,7 +27,7 @@ steps:
       - "-c"
       - |
         echo "Step 3: Pushing Docker image..."
-        docker push --all-tags us-central1-docker.pkg.dev/k8s-project-429019/k8-art-reg
+        docker push us-central1-docker.pkg.dev/k8s-project-429019/k8-art-reg/container1:latest
         echo "pushed seccessfully..."
   
   - id: Update GKE
@@ -37,5 +37,5 @@ steps:
       - "-c"
       - |
         echo "updating pods..."
-        kubectl set image container1-deployment us-central1-docker.pkg.dev/k8s-project-429019/k8-art-reg/container1:latest
+        kubectl set image deployment/container1-deployment container1=us-central1-docker.pkg.dev/k8s-project-429019/k8-art-reg/container1:latest
         echo "Image updated successfully."
